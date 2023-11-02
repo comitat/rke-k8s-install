@@ -1,0 +1,1 @@
+curl https://gist.githubusercontent.com/Ileriayo/1bef407602208911e86f42d5d208c1fb/raw/af8fa882add9c0a7ccd72b92f1cfab5c95c355ba/nuke_rancher_kube_node.sh | sh

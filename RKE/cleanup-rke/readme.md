@@ -1,0 +1,1 @@
+# commands to clean up the cluster node on a failed installation
