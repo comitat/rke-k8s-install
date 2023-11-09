@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: internal-test
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8"
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /front
+        backend:
+          service:
+            name: front
+            port:
+              number: 8083
+
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: front
+            port:
+              number: 8083
+
+      - pathType: Prefix
+        path: "/auth-server/auth/login/internal"
+        backend:
+          service:
+            name: front
+            port:
+              number: 8083
+
+      - pathType: Prefix
+        path: "/auth-server/auth/token/check"
+        backend:
+          service:
+            name: front
+            port:
+              number: 8083
+
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: front-int
+            port:
+              number: 8090
